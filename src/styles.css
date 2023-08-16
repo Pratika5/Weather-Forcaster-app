@@ -1,6 +1,6 @@
-*,*::before,*::after {
-    margin: 0;
+*{
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
     font-family: 'Merriweather Sans', sans-serif;
 }
@@ -13,10 +13,14 @@
 }
 
 .wrapper{
-    width:100vw;
-    height:100vh;
+    height: 100vh;
+    width: 100vw;
     color: var(--colorLight2);
-    background-image: linear-gradient(160deg, #112d4e 0%, #3f72af 100%);;
+    background-image: linear-gradient(160deg, #112d4e 0%, #3f72af 100%);
+}
+
+.weather-block{
+    margin-block: 4rem;
 }
 
 h1 {
@@ -25,7 +29,7 @@ h1 {
     padding-top: 20px;
 }
 
-.tab-container {
+.btn-group{
     width:90%;
     max-width: 550px;
     margin: 0 auto;
@@ -34,27 +38,21 @@ h1 {
     justify-content: space-between;
 }
 
-.tab{
+.btn-group{
     cursor: pointer;
     font-size: 0.875rem;
     letter-spacing: 1.75px;
     padding: 5px 8px;
 }
 
-.tab.current-tab{
+.btn-group .current-tab{
     background-color: rgba(219, 226, 239, 0.5);
+    padding: 8px;
     border-radius: 4px;
-}
-
-.weather-container{
-    margin-block:4rem;
 }
 
 .btn{
     all: unset;
-    /* appearance: none;
-    border:none;
-    color: white; */
     font-size: 0.85rem;
     text-transform: uppercase;
     border-radius: 5px;
@@ -64,54 +62,57 @@ h1 {
     margin-bottom: 10px;
 }
 
-.sub-container{
+.subcontainer{
     display:flex;
     flex-direction:column;
     align-items: center;
 }
 
-.grant-location-container{
-     display:none; 
+.initial-ui{
+    display:none; 
 }
 
-.grant-location-container.active{
-    display:flex;
+.initial-ui.active{
+   display:flex;
 }
 
-.grant-location-container img{
-    margin-bottom: 2rem;
+.initial-ui img{
+   margin-bottom: 2rem;
 }
 
-.grant-location-container p:first-of-type{
-    font-size: 1.75rem;
-    font-weight: 600; 
+.initial-ui h3{
+   font-size: 1.75rem;
+   font-weight: 600; 
 }
 
-.grant-location-container p:last-of-type{
-    font-size:0.85rem;
-    font-weight: 500;
-    margin-top: 0.75rem;
-    margin-bottom: 1.75rem;
-    letter-spacing: 0.75px;
+.initial-ui p:last-of-type{
+   font-size:0.85rem;
+   font-weight: 500;
+   margin-top: 0.75rem;
+   margin-bottom: 1.75rem;
+   letter-spacing: 0.75px;
 }
 
-.loading-container{
+.loading-ui{
     display: none;
 }
 
-.loading-container.active{
+.loading-ui.active{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-.loading-container p{
+.loading-ui p{
     text-transform: uppercase;
 }
 
-.user-info-container{
+.user-weather-ui{
     display:none;
 }
 
-.user-info-container.active{
+.user-weather-ui.active{
     display: flex;
 }
 
@@ -122,18 +123,18 @@ h1 {
     margin-bottom: 1rem;
 }
 
-.user-info-container p{
+.user-weather-ui p{
     font-size:1.5rem;
     font-weight:200;
 }
 
-.user-info-container img{
+.user-weather-ui img{
     width:90px;
     height:90px;
 }
 
 .name p{
-        font-size:2rem;
+    font-size:2rem;
 }
 
 .name img{
@@ -142,12 +143,12 @@ h1 {
     object-fit: contain;
 }
 
-.user-info-container p[data-temp] {
+.user-info-container p[data-cityTemp] {
     font-size:2.75rem;
     font-weight:700;
 }
 
-.parameter-container{
+.box-container{
     width:90%;
     display: flex;
     gap: 10px 20px;
@@ -156,7 +157,7 @@ h1 {
     margin-top: 2rem;
 }
 
-.parameter{
+.box{
     width:30%;
     max-width:200px;
     background-color: rgba(219, 226, 239, 0.5);;
@@ -169,18 +170,18 @@ h1 {
     align-items: center; 
 }   
 
-.parameter img{
+.box img{
     width:50px;
     height:50px;
 }
 
-.parameter p:first-of-type{
+.box p:first-of-type{
     font-size: 1.15rem;
     font-weight:600;
     text-transform: uppercase;
 }
 
-.parameter p:last-of-type{
+.box p:last-of-type{
     font-size: 1rem;
     font-weight: 200;
 }
@@ -194,6 +195,12 @@ h1 {
     align-items: center;
     gap: 0 10px; 
     margin-bottom: 3rem;
+}
+
+.input-feild{
+    margin: 20px;
+    display: flex;
+    gap: 10px;
 }
 
 .form-container.active{
@@ -226,4 +233,27 @@ h1 {
     justify-content: center;
     border-radius: 100%;
     margin-bottom:1px;
+}
+
+.api-error-container {
+    display: none;
+}
+
+.api-error-container.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem 0;
+}
+
+.api-error-container p {
+    text-align: center;
+}
+
+.api-error-container img {
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
 }
